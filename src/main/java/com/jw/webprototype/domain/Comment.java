@@ -5,7 +5,7 @@ package com.jw.webprototype.domain;
  * */
 public class Comment {
 
-    private int id;
+    private Long id;
 
     private String authorId;
 
