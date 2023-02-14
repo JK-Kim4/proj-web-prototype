@@ -1,6 +1,6 @@
 {{>layouts/header}}
 <div class="container starter-template" id="inputDiv">
-    <h3>웹 프로토타입 게시</h3>
+    <h3>웹 프로토타입 게시판</h3>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -12,9 +12,20 @@
             </tr>
         </thead>
         <tbody id="boardList">
-            <tr>
-                <td colspan="5"><span>등록된 게시물이 없습니다.</span></td>
-            </tr>
+            {{#boards}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{title}}</td>
+                    <td>{{authorId}}</td>
+                    <td>{{createdDate}}</td>
+                    <td>{{viewCnt}}</td>
+                </tr>
+            {{/boards}}
+            {{^boards}}
+                <tr>
+                    <td colspan="5"><span>등록된 게시물이 없습니다.</span></td>
+                </tr>
+            {{/boards}}
         </tbody>
     </table>
     <button class="btn btn-dark" type="button" id="insertBtn">글쓰기</button>

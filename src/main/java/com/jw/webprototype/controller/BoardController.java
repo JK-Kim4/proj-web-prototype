@@ -1,8 +1,9 @@
 package com.jw.webprototype.controller;
 
-import ch.qos.logback.core.model.Model;
+
 import com.jw.webprototype.service.BoardService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -15,7 +16,12 @@ public class BoardController {
     }
     @GetMapping("/list")
     public String listPage(Model model){
-
+        model.addAttribute("boards", boardService.findAll());
         return "contents/board/list";
+    }
+
+    @GetMapping("/insert")
+    public String insertPage(){
+        return "contents/board/insert";
     }
 }

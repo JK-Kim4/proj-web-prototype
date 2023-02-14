@@ -1,0 +1,47 @@
+{{>layouts/header}}
+<div class="container">
+    <div class="py-5 text-center">
+        <h2>게시물 등록 샘플</h2>
+        <p class="lead">게시물 등록 페이지</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h4 class="mb-3">게시물 등록</h4>
+            <div class="row input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Title</span>
+                </div>
+                <input type="text" class="form-control col-md-12" id="inputTitle" placeholder="" value="" required>
+            </div>
+
+            <div class="row input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">내용</span>
+                </div>
+                <textarea class="form-control col-md-12" name="inputDesc" id="inputDesc" cols="30" rows="10"></textarea>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="button" id="insertBtn">등록하기</button>
+        </div>
+    </div>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2022 Company Name</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+</div>
+<script type="text/javascript">
+    $(document).ready(function (){
+       $("#inputBtn").on("click", function (){
+
+       });
+    });
+</script>
+
+
+{{>layouts/footer}}

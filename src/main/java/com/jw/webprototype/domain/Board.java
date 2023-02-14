@@ -1,5 +1,7 @@
 package com.jw.webprototype.domain;
 
+import java.time.LocalDate;
+
 /**
  * 게시판 domain
  * */
@@ -14,6 +16,8 @@ public class Board {
         this.authorId = authorId;
         this.title = title;
         this.desc = desc;
+        this.createdDate = LocalDate.now();
+        this.viewCnt = 0;
     }
 
     private Long id;
@@ -23,6 +27,10 @@ public class Board {
     private String title;
 
     private String desc;
+
+    private LocalDate createdDate;
+
+    private int viewCnt;
 
 
     public void setId(Long id) {
@@ -55,5 +63,29 @@ public class Board {
 
     public String getDesc() {
         return desc;
+    }
+
+    public static void setIndex(Long index) {
+        Board.index = index;
+    }
+
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public void setViewCnt(int viewCnt) {
+        this.viewCnt = viewCnt;
+    }
+
+    public static Long getIndex() {
+        return index;
+    }
+
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
+
+    public int getViewCnt() {
+        return viewCnt;
     }
 }
