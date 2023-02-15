@@ -40,19 +40,13 @@
 </head>
 <body>
 <div class=" container starter-template">
-    <div class="text-center mb-4">
-        <p>현재 등록 닉네임</p>
-        {{#members}}
-            <span>id:{{id}}, name:{{name}}</span>
-        {{/members}}
-    </div>
-    <div class="text-center mb-4">
-        <h1 class="h3 mb-3 font-weight-normal">Insert Nickname</h1>
-        <p>사용하실 닉네임을 입력해 주세요.</p>
-        <input type="text" class="form-control" id="inputNickname">
-    </div>
-
-    <button class="btn btn-lg btn-primary btn-block" type="button">시작하기</button>
+    <form method="post" action="/login">
+        <div class="text-center mb-4">
+            <h1 class="h3 mb-3 font-weight-normal">사용하실 닉네임을 입력해 주세요.</h1>
+            <input type="text" class="form-control" id="inputNickname">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">시작하기</button>
+    </form>
     <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2022</p>
 </div>
 </body>

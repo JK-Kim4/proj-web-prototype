@@ -1,8 +1,8 @@
 {{>layouts/header}}
 <div class="container">
     <div class="py-5 text-center">
-        <h2>게시물 등록 샘플</h2>
-        <p class="lead">게시물 등록 페이지</p>
+        <h2>웹 프로토타입 게시판</h2>
+        <p class="lead">게시물 등록</p>
     </div>
 
     <div class="row">
@@ -37,8 +37,27 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function (){
-       $("#inputBtn").on("click", function (){
+       $("#insertBtn").on("click", function (){
+            let data = {
+                title: $("#inputTitle").val(),
+                desc: $("#inputDesc").val(),
+            };
 
+            $.ajax({
+                url: "/board/insert",
+                method: "POST",
+                data: JSON.stringify(data),
+                contentType: "application/json; charset=utf-8",
+                success: function (result){
+                    if(result > 0){
+                        location.href="/board/list";
+                    }
+                },
+                error: function (x,h,r){
+                    console.log(x);
+                    location.reload();
+                }
+            });
        });
     });
 </script>

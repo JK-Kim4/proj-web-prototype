@@ -1,7 +1,10 @@
 package com.jw.webprototype.service;
 
+import com.jw.webprototype.controller.dto.BoardSaveDto;
 import com.jw.webprototype.domain.Board;
+import com.jw.webprototype.domain.Member;
 import com.jw.webprototype.presentation.BoardRepository;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +18,18 @@ public class BoardService {
     }
 
     public List<Board> findAll() {
-        return boardRepository.findAll();
+        List<Board> result = boardRepository.findAll();
+        return result;
+    }
+
+    public Long save(BoardSaveDto dto, HttpSession session) {
+        Board board = new Board(dto);
+        Member member = (Member) session.getAttribute("member");
+        board.setAuthorId(member.getId());
+        return boardRepository.save(board);
+    }
+
+    public Object findBoardById(Long boardId) {
+        return boardRepository.findById(boardId);
     }
 }

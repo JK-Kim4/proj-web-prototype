@@ -8,22 +8,25 @@ import java.util.List;
 
 public class MemoryBoardRepository implements BoardRepository {
 
-    private static List<Board> boardList = new ArrayList<>();
+    private List<Board> boardList = new ArrayList<>();
 
     @Override
     public Long save(Board board) {
-        boardList.add(board);
+        this.boardList.add(board);
         Board saved = boardList.get(boardList.size()-1);
         return saved.getId();
     }
 
     @Override
     public Board findById(Long id) {
-        return boardList.stream().filter(b -> b.getId().equals(id)).findAny().get();
+        return this.boardList.stream()
+                .filter(b -> b.getId().equals(id))
+                .findAny()
+                .orElseThrow(()-> new NullPointerException("게시물이 존재하지 않습니다."));
     }
 
     @Override
     public List<Board> findAll() {
-        return boardList;
+        return this.boardList;
     }
 }

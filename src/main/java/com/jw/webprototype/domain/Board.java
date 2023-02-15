@@ -1,5 +1,7 @@
 package com.jw.webprototype.domain;
 
+import com.jw.webprototype.controller.dto.BoardSaveDto;
+
 import java.time.LocalDate;
 
 /**
@@ -11,11 +13,12 @@ public class Board {
 
     public Board(){};
 
-    public Board(Long authorId, String title, String desc){
+
+    public Board(BoardSaveDto dto){
         this.id = index++;
-        this.authorId = authorId;
-        this.title = title;
-        this.desc = desc;
+        this.authorId = dto.getAuthorId();
+        this.title = dto.getTitle();
+        this.desc = dto.getDesc();
         this.createdDate = LocalDate.now();
         this.viewCnt = 0;
     }
