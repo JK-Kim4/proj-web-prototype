@@ -23,4 +23,10 @@ public class IndexController {
         session.setAttribute("member", member);
         return "redirect:/board/list";
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session){
+        session.invalidate();
+        return "redirect:/login";
+    }
 }

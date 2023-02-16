@@ -9,7 +9,7 @@ import java.time.LocalDate;
  * */
 public class Board {
 
-    private static Long index = 1L;
+    private Long index = 1L;
 
     public Board(){};
 
@@ -68,9 +68,6 @@ public class Board {
         return desc;
     }
 
-    public static void setIndex(Long index) {
-        Board.index = index;
-    }
 
     public void setCreatedDate(LocalDate createdDate) {
         this.createdDate = createdDate;
@@ -80,8 +77,8 @@ public class Board {
         this.viewCnt = viewCnt;
     }
 
-    public static Long getIndex() {
-        return index;
+    public Long getIndex() {
+        return this.index;
     }
 
     public LocalDate getCreatedDate() {

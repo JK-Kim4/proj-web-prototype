@@ -18,8 +18,7 @@ public class BoardService {
     }
 
     public List<Board> findAll() {
-        List<Board> result = boardRepository.findAll();
-        return result;
+        return boardRepository.findAll();
     }
 
     public Long save(BoardSaveDto dto, HttpSession session) {
