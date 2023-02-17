@@ -7,7 +7,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            {{#board}}≈
+            {{#board}}
             <h4 class="mb-3">게시물 상세</h4>
             <div class="row input-group mb-3">
                 <div class="input-group-prepend">
@@ -20,16 +20,18 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">내용</span>
                 </div>
-                <textarea class="form-control col-md-12" name="inputDesc" id="inputDesc" cols="30" rows="10">
-                    {{subject}}
-                </textarea>
+                <textarea class="form-control col-md-12"
+                          name="inputDesc"
+                          id="inputDesc" cols="30" rows="10"
+                          disabled>{{desc}}</textarea>
             </div>
             {{/board}}
         </div>
     </div>
     <hr class="mb-4">
     <div class="row">
-        댓글 부분
+        <button type="button" class="btn btn-dark" id="commentBtn">댓글쓰기</button>
+        <div class="col-md-12" id="commentInsertDiv"></div>
     </div>
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
@@ -43,7 +45,11 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function (){
+        $("#commentBtn").on("click", function (){
+            let html = "<input type='text' id='inputComment'/>";
+            $("#commentInsertDiv").html(html);
 
+        });
     });
 </script>
 
