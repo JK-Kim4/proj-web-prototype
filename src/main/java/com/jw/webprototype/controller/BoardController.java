@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/board")
 public class BoardController {
     private final BoardService boardService;
+
     public BoardController(BoardService boardService){
         this.boardService = boardService;
     }
