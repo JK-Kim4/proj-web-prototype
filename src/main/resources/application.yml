@@ -3,4 +3,7 @@ server:
     encoding:
       charset: utf-8
       force: true
-
+spring:
+  mustache:
+    servlet:
+      expose-session-attributes: true

@@ -18,20 +18,12 @@ public class Member {
 
     private String name;
 
-    public static Long getIndex() {
-        return index;
-    }
-
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
-        return name;
-    }
-
-    public static void setIndex(Long index) {
-        Member.index = index;
+        return this.name;
     }
 
     public void setId(Long id) {

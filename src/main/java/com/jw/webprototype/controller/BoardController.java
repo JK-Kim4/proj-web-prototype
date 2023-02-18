@@ -20,19 +20,16 @@ public class BoardController {
         model.addAttribute("boards", boardService.findAll());
         return "contents/board/list";
     }
-
     @GetMapping("/insert")
     public String insertPage(){
         return "contents/board/insert";
     }
-
     @PostMapping("/insert")
     @ResponseBody
     public Long insertMethod(HttpSession session,
                              @RequestBody BoardSaveDto dto){
         return boardService.save(dto, session);
     }
-
     @GetMapping("/{boardId}")
     public String detailPage(@PathVariable("boardId") Long boardId, Model model){
         model.addAttribute("board", boardService.findBoardById(boardId));
