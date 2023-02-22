@@ -31,6 +31,7 @@
     <hr class="mb-4">
     <div class="row input-group mb-3" id="commentInsertDiv">
         <div class="input-group-prepend">
+            <input type="hidden" id="inputCommentAuthor" value="{{member.name}}">
             <span class="input-group-text">{{member.name}}</span>
         </div>
         <input type='text' class='form-control col-md-12' id='inputComment' value=''>
@@ -42,11 +43,11 @@
         <div class="input-group-prepend">
             <span class="input-group-text">{{authorId}}</span>
         </div>
-        <input type="text" class="form-control col-md-12" id="inputComment" value="{{desc}}" disabled>
+        <input type="text" class="form-control col-md-12" value="{{desc}}" disabled>
     </div>
     {{/board.commentList}}
     {{^board.commentList}}
-    <div class="row input-group mb-3">
+    <div class="row input-group mb-3">세
         <div class="input-group-prepend">
             <span class="input-group-text">??</span>
         </div>
@@ -67,7 +68,24 @@
 <script type="text/javascript">
     $(document).ready(function (){
         $("#commentBtn").on("click", function (){
+            let commentAuthor = $("#inputCommentAuthor").val();
+            let commentDesc = $("#inputComment").val();
 
+            let data = {};
+
+            $.ajax({
+                url: "/comment/insert",
+                method: "POST",
+                contentType: "application/json; charset=utf-8",
+                data: JSON.stringify(data),
+                dataType: "json",
+                success: function (result){
+
+                },
+                error: function (x,h,r){
+
+                }
+            });
         });
     });
 </script>
