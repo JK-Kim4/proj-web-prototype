@@ -9,6 +9,7 @@
         <div class="col-md-12">
             {{#board.board}}
             <h4 class="mb-3">게시물 상세</h4>
+                <input type="hidden" id="inputBoardId" value="{{id}}">
             <div class="row input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Title</span>
@@ -31,35 +32,46 @@
     <hr class="mb-4">
     <div class="row input-group mb-3" id="commentInsertDiv">
         <div class="input-group-prepend">
-            <input type="hidden" id="inputCommentAuthor" value="{{member.name}}">
+            <input type="hidden" id="inputMemberId" value="{{member.id}}">
             <span class="input-group-text">{{member.name}}</span>
         </div>
         <input type='text' class='form-control col-md-12' id='inputComment' value=''>
         <button type="button" class="btn btn-dark" id="commentBtn">댓글쓰기</button>
     </div>
     <br>
-    {{#board.commentList}}
+
+<div class="row input-group mb-3">
+    <table>
+        <thead>
+            <tr>
+                <td>작성자</td>
+                <td>내용</td>
+            </tr>
+        </thead>
+        <tbody id="commentBody">
+        {{#board.commentList}}
+            <tr>
+                <td>{{authorId}}</td>
+                <td>{{desc}}</td>
+            </tr>
+        {{/board.commentList}}
+        </tbody>
+    </table>
+</div>
+
     <div class="row input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text">{{authorId}}</span>
-        </div>
-        <input type="text" class="form-control col-md-12" value="{{desc}}" disabled>
-    </div>
-    {{/board.commentList}}
-    {{^board.commentList}}
-    <div class="row input-group mb-3">세
         <div class="input-group-prepend">
             <span class="input-group-text">??</span>
         </div>
-        <input type="text" class="form-control col-md-12" id="inputComment" value="댓글이 없습니다." disabled>
+        <input type="text" class="form-control col-md-12" id="" value="댓글이 없습니다." disabled>
     </div>
-    {{/board.commentList}}
+
 
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2017-2022 Company Name</p>
         <ul class="list-inline">
-            <li class="list-inline-item"><a href="#">Privacy</a></li>능
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
             <li class="list-inline-item"><a href="#">Terms</a></li>
             <li class="list-inline-item"><a href="#">Support</a></li>
         </ul>
@@ -68,24 +80,38 @@
 <script type="text/javascript">
     $(document).ready(function (){
         $("#commentBtn").on("click", function (){
-            let commentAuthor = $("#inputCommentAuthor").val();
-            let commentDesc = $("#inputComment").val();
-
-            let data = {};
+            let data = {
+                authorId: $("#inputMemberId").val(),
+                boardId: $("#inputBoardId").val(),
+                upperCommentId: 0,
+                depth: 1,
+                desc: $("#inputComment").val()
+            }
 
             $.ajax({
                 url: "/comment/insert",
                 method: "POST",
-                contentType: "application/json; charset=utf-8",
-                data: JSON.stringify(data),
+                contentType: "application/json; charset=UTF-8",
+                data : JSON.stringify(data),
                 dataType: "json",
                 success: function (result){
+                    let html = "";
+                    if(result != null && result != undefined){
+                        html += "<tr>" +
+                                    "<td>" +result.authorId+"</td>" +
+                                    "<td>" +result.desc+"</td>" +
+                                "</tr>";
 
+                        $("#commentBody").append(html);
+                    }
+                    $("#inputComment").val("");
+                    console.log(result);
                 },
                 error: function (x,h,r){
-
+                    alert("시스템 오류 발생");
+                    console.log(x);
                 }
-            });
+            })
         });
     });
 </script>

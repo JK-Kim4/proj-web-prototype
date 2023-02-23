@@ -16,8 +16,10 @@ public class BoardService {
     private final BoardRepository boardRepository;
     private final CommentRepository commentRepository;
 
-    public BoardService(BoardRepository boardRepository){
+    public BoardService(BoardRepository boardRepository,
+                        CommentRepository commentRepository){
         this.boardRepository = boardRepository;
+        this.commentRepository = commentRepository;
     }
 
     public List<Board> findAll() {

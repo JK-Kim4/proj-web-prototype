@@ -20,8 +20,9 @@ public class CommentService {
         return null;
     }
 
-    public Long save(CommentSaveDto dto) {
+    public Comment save(CommentSaveDto dto) {
         Comment comment = new Comment(dto);
-        return commentRepository.save(comment);
+        commentRepository.save(comment);
+        return comment;
     }
 }

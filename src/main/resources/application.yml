@@ -7,3 +7,7 @@ spring:
   mustache:
     servlet:
       expose-session-attributes: true
+
+logging:
+  level:
+    web: DEBUG

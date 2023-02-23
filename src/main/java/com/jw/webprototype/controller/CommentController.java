@@ -26,7 +26,7 @@ public class CommentController {
 
     @PostMapping("/insert")
     @ResponseBody
-    public Long save(@RequestBody CommentSaveDto dto){
+    public Comment save(@RequestBody CommentSaveDto dto){
         return commentService.save(dto);
     }
 }
