@@ -10,4 +10,4 @@ spring:
 
 logging:
   level:
-    web: DEBUG
+    root: debug
