@@ -7,5 +7,5 @@ public interface UserRepository {
 
     Long save(UserDto dto);
 
-    User findbyUserId(String id);
+    User findByUserId(String id);
 }

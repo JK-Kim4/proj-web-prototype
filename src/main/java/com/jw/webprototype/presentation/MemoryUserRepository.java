@@ -28,7 +28,20 @@ public class MemoryUserRepository implements UserRepository{
     }
 
     @Override
-    public User findbyUserId(String id) {
-        return userList.stream().filter(u -> u.getId().equals(id)).findAny().get();
+    public User findByUserId(String id) {
+
+        User result = null;
+
+        for(User u: userList){
+            if(id.equals(u.getId())){
+                logger.debug("find result = {}", u.getId().equals(id));
+                result = u;
+            }else {
+                logger.debug("find result = {}", u.getId().equals(id));
+            }
+        }
+
+        return result;
+        /*return userList.stream().filter(u -> u.getId().equals(id)).findAny().get();*/
     }
 }

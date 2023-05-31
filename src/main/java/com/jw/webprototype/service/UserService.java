@@ -20,18 +20,8 @@ public class UserService {
 
     public User login(UserDto userDto) {
 
-        User findUser = findByUserId(userDto.getId());
+        User findUser = userRepository.findByUserId(userDto.getId());
         if(findUser.equals(userDto.getPassword())){
-            return findUser;
-        }else{
-            return null;
-        }
-    }
-
-    public User findByUserId(String id){
-        User findUser = userRepository.findbyUserId(id);
-
-        if(findUser != null){
             return findUser;
         }else{
             return null;
