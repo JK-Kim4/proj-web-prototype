@@ -1,9 +1,6 @@
 package com.jw.webprototype.comfiguration;
 
-import com.jw.webprototype.presentation.BoardRepository;
-import com.jw.webprototype.presentation.CommentRepository;
-import com.jw.webprototype.presentation.MemoryBoardRepository;
-import com.jw.webprototype.presentation.MemoryCommentRepository;
+import com.jw.webprototype.presentation.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,4 +16,9 @@ public class SpringConfiguration {
     public CommentRepository commentRepository() {
         return new MemoryCommentRepository();
     }
+
+    @Bean
+    public UserRepository userRepository(){return new MemoryUserRepository();}
+
+
 }
