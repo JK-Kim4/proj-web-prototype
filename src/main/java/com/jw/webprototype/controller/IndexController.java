@@ -17,12 +17,6 @@ public class IndexController {
         return "login";
     }
 
-    /*회원가입 페이지*/
-    @GetMapping("/signup")
-    public String signupPage(){
-        return "signup";
-    }
-
     @PostMapping("/login")
     public String login(HttpSession session, String name){
         Member member = new Member(name);

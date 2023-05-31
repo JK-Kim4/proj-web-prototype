@@ -31,14 +31,16 @@
 </head>
 <body>
 <div class=" container starter-template">
-    <form method="post" action="/login">
+    <form method="post" action="/user/signin">
         <div class="text-center mb-4">
-            <h1 class="h3 mb-3 font-weight-normal">사용하실 닉네임을 입력해 주세요.</h1>
-            <input type="text" class="form-control" id="inpuName" name="name">
+            <h1 class="h3 mb-3 font-weight-normal">아이디</h1>
+            <input type="text" class="form-control" id="inputId" name="inputId">
+            <h1 class="h3 mb-3 font-weight-normal">패스워드</h1>
+            <input type="text" class="form-control" id="inputPassword" name="inputPassword">
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">시작하기</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+        <a href="/user/signup">회원 가입</a>
     </form>
-    <hr>
     <p class="mt-5 mb-3 text-muted text-center">&copy; 2017-2022</p>
 </div>
 </body>

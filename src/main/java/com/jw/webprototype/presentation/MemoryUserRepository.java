@@ -5,6 +5,7 @@ import com.jw.webprototype.domain.User;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class MemoryUserRepository implements UserRepository{
 
@@ -17,5 +18,10 @@ public class MemoryUserRepository implements UserRepository{
         userList.add(user);
 
         return user.getSeq();
+    }
+
+    @Override
+    public User findbyUserId(String id) {
+        return userList.stream().filter(u -> u.equals(id)).findAny().get();
     }
 }
