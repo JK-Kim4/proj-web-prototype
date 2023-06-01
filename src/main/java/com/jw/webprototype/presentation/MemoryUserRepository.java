@@ -2,6 +2,7 @@ package com.jw.webprototype.presentation;
 
 import com.jw.webprototype.controller.dto.UserDto;
 import com.jw.webprototype.domain.User;
+import com.jw.webprototype.exception.CannotFindUserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,19 +30,7 @@ public class MemoryUserRepository implements UserRepository{
 
     @Override
     public User findByUserId(String id) {
-
-        User result = null;
-
-        for(User u: userList){
-            if(id.equals(u.getId())){
-                logger.debug("find result = {}", u.getId().equals(id));
-                result = u;
-            }else {
-                logger.debug("find result = {}", u.getId().equals(id));
-            }
-        }
-
-        return result;
-        /*return userList.stream().filter(u -> u.getId().equals(id)).findAny().get();*/
+        return userList.stream().filter(u -> u.getId().equals(id)).findAny()
+                .orElseThrow(() -> new CannotFindUserException("사용자가 존재하지않습니다."));
     }
 }

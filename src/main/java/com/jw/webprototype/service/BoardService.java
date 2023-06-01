@@ -3,7 +3,7 @@ package com.jw.webprototype.service;
 import com.jw.webprototype.controller.dto.BoardDetailDto;
 import com.jw.webprototype.controller.dto.BoardSaveDto;
 import com.jw.webprototype.domain.Board;
-import com.jw.webprototype.domain.Member;
+import com.jw.webprototype.domain.User;
 import com.jw.webprototype.presentation.BoardRepository;
 import com.jw.webprototype.presentation.CommentRepository;
 import jakarta.servlet.http.HttpSession;
@@ -28,8 +28,12 @@ public class BoardService {
 
     public Long save(BoardSaveDto dto, HttpSession session) {
         Board board = new Board(dto);
-        Member member = (Member) session.getAttribute("member");
-        board.setAuthorId(member.getId());
+
+        User user = (User) session.getAttribute("user");
+        if(user != null){
+            board.setAuthorId(user.getSeq());
+        }
+
         return boardRepository.save(board);
     }
 
