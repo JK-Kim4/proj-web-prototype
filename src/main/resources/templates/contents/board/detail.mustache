@@ -32,8 +32,8 @@
     <hr class="mb-4">
     <div class="row input-group mb-3" id="commentInsertDiv">
         <div class="input-group-prepend">
-            <input type="hidden" id="inputMemberId" value="{{member.id}}">
-            <span class="input-group-text">{{member.name}}</span>
+            <input type="hidden" id="inputMemberId" value="{{user.seq}}">
+            <span class="input-group-text">{{user.nickName}}</span>
         </div>
         <input type='text' class='form-control col-md-12' id='inputComment' value=''>
         <button type="button" class="btn btn-dark" id="commentBtn">댓글쓰기</button>
