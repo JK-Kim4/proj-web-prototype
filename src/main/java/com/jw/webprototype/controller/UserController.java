@@ -39,7 +39,7 @@ public class UserController {
 
         User user = userService.login(userDto);
 
-        return "redirect:/board/list";
+        return "redirect:/menu/list";
     }
 
     /*회원 가입 로직*/

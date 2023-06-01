@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class IndexController {
 
+    @GetMapping("/menu/list")
+    public String menuListPage(){
+        return "contents/menu-list";
+    }
+
     @GetMapping(value = {"/", "/index", "/login"})
     public String loginPage(Model model){
         model.addAttribute("members", Application.members);
