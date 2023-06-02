@@ -3,6 +3,8 @@ package com.jw.webprototype.domain;
 import com.jw.webprototype.Application;
 import com.jw.webprototype.controller.dto.ItemSaveDto;
 
+import java.util.Objects;
+
 public class Item extends BaseTime{
 
     public Item(){
@@ -66,5 +68,28 @@ public class Item extends BaseTime{
 
     public void setThumbnailFilePath(String thumbnailFilePath) {
         ThumbnailFilePath = thumbnailFilePath;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", thumbnailFileName='" + thumbnailFileName + '\'' +
+                ", ThumbnailFilePath='" + ThumbnailFilePath + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Item item)) return false;
+        return Objects.equals(getId(), item.getId()) && Objects.equals(getTitle(), item.getTitle()) && Objects.equals(getDescription(), item.getDescription()) && Objects.equals(getThumbnailFileName(), item.getThumbnailFileName()) && Objects.equals(getThumbnailFilePath(), item.getThumbnailFilePath());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getDescription(), getThumbnailFileName(), getThumbnailFilePath());
     }
 }

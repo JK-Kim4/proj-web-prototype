@@ -20,5 +20,6 @@ public class SpringConfiguration {
     @Bean
     public UserRepository userRepository(){return new MemoryUserRepository();}
 
-
+    @Bean
+    public ItemRepository itemRepository(){return new MemoryItemRepository();}
 }

@@ -1,17 +1,16 @@
 package com.jw.webprototype.presentation;
 
-import com.jw.webprototype.controller.dto.ItemSaveDto;
 import com.jw.webprototype.domain.Item;
 
 import java.util.List;
 
 public interface ItemRepository {
 
-    Long save(ItemSaveDto dto);
+    Long save(Item dto);
 
     int delete(Long itemId);
 
-    int update(ItemSaveDto dto);
+    int update(Item item);
 
     Item findById(Long itemId);
 
