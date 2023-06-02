@@ -10,7 +10,7 @@ public class User {
     public User(){}
 
     public User(UserDto dto){
-        this.seq = Application.userIdSeq++;
+        this.seq = Application.userSeq++;
         this.id = dto.getId();
         this.password = dto.getPassword();
         this.nickName = dto.getNickName();

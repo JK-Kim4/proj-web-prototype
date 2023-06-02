@@ -1,5 +1,6 @@
 package com.jw.webprototype.domain;
 
+import com.jw.webprototype.Application;
 import com.jw.webprototype.controller.dto.BoardSaveDto;
 
 import java.time.LocalDate;
@@ -9,13 +10,11 @@ import java.time.LocalDate;
  * */
 public class Board {
 
-    private Long index = 1L;
-
     public Board(){};
 
 
     public Board(BoardSaveDto dto){
-        this.id = index++;
+        this.id = Application.boardId++;
         this.authorId = dto.getAuthorId();
         this.title = dto.getTitle();
         this.desc = dto.getDesc();
@@ -36,8 +35,8 @@ public class Board {
     private int viewCnt;
 
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId() {
+        this.id = Application.boardId++;
     }
 
     public void setAuthorId(Long authorId) {
@@ -77,8 +76,8 @@ public class Board {
         this.viewCnt = viewCnt;
     }
 
-    public Long getIndex() {
-        return this.index;
+    public Long getBoardIndex() {
+        return Application.boardId;
     }
 
     public LocalDate getCreatedDate() {

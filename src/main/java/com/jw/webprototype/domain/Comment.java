@@ -1,5 +1,6 @@
 package com.jw.webprototype.domain;
 
+import com.jw.webprototype.Application;
 import com.jw.webprototype.controller.dto.CommentSaveDto;
 
 import java.time.LocalDate;
@@ -9,15 +10,12 @@ import java.time.LocalDate;
  * */
 public class Comment {
 
-    private Long index = 1L;
-
     public Comment(CommentSaveDto dto){
         if(dto.getUpperCommentId() == 0){
-            this.upperCommentId = index;
+            this.upperCommentId = Application.commentId++;
         }else{
             this.upperCommentId = dto.getUpperCommentId();
         }
-        this.id = index++;
         this.authorId = dto.getAuthorId();
         this.boardId = dto.getBoardId();
         this.depth = dto.getDepth();

@@ -8,11 +8,10 @@ import java.io.File;
 @SpringBootApplication
 public class Application {
 
-    public static Long userIdSeq;
+    public static Long userSeq, boardId, commentId, itemId = 1L;
 
     public static void main(String[] args) {
 
-        userIdSeq = 1L;
 
         String rootPath = System.getProperty("user.dir");
         System.out.println("root dir is " +rootPath);
