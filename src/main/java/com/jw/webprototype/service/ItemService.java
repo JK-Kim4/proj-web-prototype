@@ -7,6 +7,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemService {
 
@@ -21,5 +23,13 @@ public class ItemService {
     public Long save(ItemSaveDto dto){
         Item item = new Item(dto);
         return itemRepository.save(item);
+    }
+
+    public List<Item> findAll(){
+        return itemRepository.findAll();
+    }
+
+    public Item findItemById(Long itemId){
+        return itemRepository.findById(itemId);
     }
 }

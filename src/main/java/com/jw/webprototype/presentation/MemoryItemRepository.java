@@ -14,17 +14,14 @@ public class MemoryItemRepository implements ItemRepository{
     @Override
     public Long save(Item item) {
 
-        System.out.println("item repository item = " + item.toString());
-
         //Null && PKDuplication check
         if(Objects.isNull(item)){
             throw new NullPointerException("Item Object is null!");
         }else{
-            boolean item1 = itemList.stream()
+            if(itemList.stream()
                     .filter(i -> i.getId().equals(item.getId()))
                     .findAny()
-                    .isPresent();
-            if(item1){
+                    .isPresent()){
                 throw new PKDuplicationException("Item Unique Key value is duplicated");
             }else{
                 //save
@@ -46,11 +43,14 @@ public class MemoryItemRepository implements ItemRepository{
 
     @Override
     public Item findById(Long itemId) {
-        return null;
+        return itemList.stream()
+                .filter(i -> i.getId().equals(itemId))
+                .findAny()
+                .orElseThrow(() -> new NullPointerException("아이템 조회에 실패하였습니다. ItemId = " +itemId));
     }
 
     @Override
     public List<Item> findAll() {
-        return null;
+        return this.itemList;
     }
 }
