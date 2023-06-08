@@ -6,9 +6,6 @@ public class ItemSaveDto {
 
     private String description;
 
-    private String thumbnailFileName;
-
-    private String thumbnailFilePath;
 
     public String getTitle() {
         return title;
@@ -26,19 +23,4 @@ public class ItemSaveDto {
         this.description = description;
     }
 
-    public String getThumbnailFileName() {
-        return thumbnailFileName;
-    }
-
-    public void setThumbnailFileName(String thumbnailFileName) {
-        this.thumbnailFileName = thumbnailFileName;
-    }
-
-    public String getThumbnailFilePath() {
-        return thumbnailFilePath;
-    }
-
-    public void setThumbnailFilePath(String thumbnailFilePath) {
-        this.thumbnailFilePath = thumbnailFilePath;
-    }
 }

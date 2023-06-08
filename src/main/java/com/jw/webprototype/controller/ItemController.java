@@ -1,5 +1,6 @@
 package com.jw.webprototype.controller;
 
+import com.jw.webprototype.Application;
 import com.jw.webprototype.controller.dto.ItemSaveDto;
 import com.jw.webprototype.domain.Item;
 import com.jw.webprototype.service.ItemService;
@@ -8,7 +9,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -57,8 +61,13 @@ public class ItemController {
 
     @PostMapping("/insert")
     @ResponseBody
-    public Long insertMethod(ItemSaveDto dto){
-        return itemService.save(dto);
+    public Long insertMethod(
+            ItemSaveDto dto,
+            MultipartFile file) throws IOException {
+
+
+
+        return itemService.save(dto, file);
     }
 
 }

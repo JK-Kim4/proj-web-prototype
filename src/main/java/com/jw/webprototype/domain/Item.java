@@ -16,8 +16,6 @@ public class Item extends BaseTime{
         this.id = Application.itemId++;
         this.title = dto.getTitle();
         this.description = dto.getDescription();
-        this.thumbnailFileName = dto.getThumbnailFileName();
-        this.ThumbnailFilePath = dto.getThumbnailFilePath();
     }
 
     private Long id;

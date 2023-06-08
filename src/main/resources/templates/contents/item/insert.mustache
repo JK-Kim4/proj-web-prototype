@@ -7,29 +7,30 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h4 class="mb-3">아이템 등록</h4>
-            <div class="row input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">제목</span>
+            <form action="/item/insert" method="post" enctype="multipart/form-data">
+                <h4 class="mb-3">아이템 등록</h4>
+                <div class="row input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">제목</span>
+                    </div>
+                    <input type="text" class="form-control col-md-12" id="inputTitle" name="title" required>
                 </div>
-                <input type="text" class="form-control col-md-12" id="inputTitle" placeholder="" value="" required>
-            </div>
 
-            <div class="row input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">내용</span>
+                <div class="row input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">내용</span>
+                    </div>
+                    <textarea class="form-control col-md-12" id="inputDesc" name="description"  cols="30" rows="10"></textarea>
                 </div>
-                <textarea class="form-control col-md-12" name="inputDesc" id="inputDesc" cols="30" rows="10"></textarea>
-            </div>
-            <hr class="mb-4">
-            <div class="row input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text">섬네일 이미지</span>
+                <hr class="mb-4">
+                <div class="row input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">섬네일 이미지</span>
+                    </div>
+                    <input class="form-control col-md-12" type="file" name="file" id="inputFile">
                 </div>
-                <input class="form-control col-md-12" type="file" name="inputFile" id="inputFile">
-            </div>
-
-            <button class="btn btn-primary btn-lg btn-block" type="button" id="insertBtn">등록하기</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit" id="insertBtn">등록하기</button>
+            </form>
         </div>
     </div>
 
@@ -44,9 +45,9 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function (){
-        $("#insertBtn").on("click", function (){
+        /*$("#insertBtn").on("click", function (){
 
-        });
+        });*/
     });
 </script>
 

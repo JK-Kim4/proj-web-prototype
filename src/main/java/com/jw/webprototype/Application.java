@@ -9,14 +9,12 @@ import java.io.File;
 public class Application {
 
     public static Long userSeq, boardId, commentId, itemId = 1L;
+    public static final String ROOT_PATH = System.getProperty("user.dir");
+    public static final String FILE_UPLOAD_PATH = "/src/main/resources/static/uploads/";
 
     public static void main(String[] args) {
 
-
-        String rootPath = System.getProperty("user.dir");
-        System.out.println("root dir is " +rootPath);
-
-        File folder = new File(rootPath + "c");
+        File folder = new File(ROOT_PATH + FILE_UPLOAD_PATH);
 
         if(folder.isDirectory()){
 

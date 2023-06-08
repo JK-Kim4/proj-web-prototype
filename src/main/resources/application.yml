@@ -8,3 +8,8 @@ spring:
     servlet:
       expose-session-attributes: true
 
+
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      maxRequestSize: 50MB
