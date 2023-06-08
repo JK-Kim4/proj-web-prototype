@@ -34,7 +34,7 @@ public class ItemController {
         return "contents/item/insert";
     }
 
-    @GetMapping("/{itemId}")
+    @GetMapping("/detail/{itemId}")
     public String detailPage(
             @PathVariable(name = "itemId") Long itemId,
             Model model){

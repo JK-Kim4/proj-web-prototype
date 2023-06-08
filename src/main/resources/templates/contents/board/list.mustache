@@ -28,8 +28,15 @@
             {{/boards}}
         </tbody>
     </table>
+    {{#user}}
     <button class="btn btn-dark" type="button" onclick="location.href='/board/insert'">글쓰기</button>
     <button class="btn btn-dark" type="button" onclick="location.href='/logout'">사용자 변경</button>
+    {{/user}}
+    {{^user}}
+        <button class="btn btn-dark" type="button" onclick="location.href='/board/insert'" disabled>글쓰기</button>
+        <button class="btn btn-dark" type="button" onclick="location.href='/logout'" disabled>사용자 변경</button>
+    {{/user}}
+
 </div>
 <script type="text/javascript">
 
